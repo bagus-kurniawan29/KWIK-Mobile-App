@@ -5,10 +5,6 @@ class Mail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Mail'),
-      ),
-    );
+    return Scaffold(body: Center(child: Text('Mail')));
   }
 }
