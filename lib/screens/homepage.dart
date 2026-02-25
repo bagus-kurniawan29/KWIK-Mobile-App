@@ -5,88 +5,84 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        actionsPadding: EdgeInsets.only(right: 12),
-        title: Text(
-          'Kwik',
-          style: TextStyle(
-            fontSize: 24,
-            fontFamily: 'sfpro',
-            fontWeight: FontWeight.bold,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          elevation: 0,
+          scrolledUnderElevation: 0,
+          title: Row(
+            children: [
+              Image.asset('images/logo.png', height: 27),
+              SizedBox(width: 8),
+              Text(
+                'Kwik',
+                style: TextStyle(
+                  fontFamily: 'sfpro',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.notifications_sharp)),
+          ],
+          backgroundColor: Colors.white,
+          bottom: const TabBar(
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.grey,
+            indicatorColor: Colors.black,
+            indicatorWeight: 3,
+            labelStyle: TextStyle(
+              fontSize: 16,
+              fontFamily: 'sfpro',
+              fontWeight: FontWeight.bold,
+            ),
+            tabs: [
+              Tab(text: 'Feed'),
+              Tab(text: 'Community'),
+              Tab(text: 'Friend'),
+            ],
           ),
         ),
-        backgroundColor: Colors.white,
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications_rounded)),
-        ],
-      ),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            physics: BouncingScrollPhysics(
-              decelerationRate: ScrollDecelerationRate.normal
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        'Feed',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: "sfpro",
-                          fontWeight: FontWeight.w600,
-                        ),
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              physics: BouncingScrollPhysics(
+                decelerationRate: ScrollDecelerationRate.normal,
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ...List.generate(
+                      20,
+                      (index) => Container(
+                        margin: EdgeInsets.only(top: 20),
+                        height: 100,
+                        width: double.infinity,
+                        color: Colors.grey,
+                        child: Center(child: Text("Postingan Ke-$index")),
                       ),
-                      Text(
-                        'Comunity',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: "sfpro",
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Text(
-                        'Friend',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: "sfpro",
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                  ...List.generate(
-                    20,
-                    (index) => Container(
-                      margin: EdgeInsets.only(top: 20),
-                      height: 100,
-                      width: double.infinity,
-                      color: Colors.grey,
-                      child: Center(child: Text("Postingan Ke-$index")),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 15,
-            right: 12,
-            child: FloatingActionButton(
-              onPressed: () {},
-              shape: CircleBorder(),
-              backgroundColor: Colors.black,
-              child: Icon(Icons.add, color: Colors.white),
+            Positioned(
+              bottom: 15,
+              right: 12,
+              child: FloatingActionButton(
+                onPressed: () {},
+                shape: CircleBorder(),
+                backgroundColor: Colors.black,
+                child: Icon(Icons.add, color: Colors.white),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
