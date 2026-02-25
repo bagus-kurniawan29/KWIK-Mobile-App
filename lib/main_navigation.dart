@@ -4,7 +4,6 @@ import 'package:kwik/screens/mail.dart';
 import 'package:kwik/screens/profile.dart';
 import 'package:kwik/screens/search.dart';
 
-
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -19,7 +18,7 @@ class _MainNavigationState extends State<MainNavigation> {
     const Homepage(),
     const Search(),
     const Mail(),
-    const Profile()
+    const Profile(),
   ];
 
   @override
@@ -27,34 +26,34 @@ class _MainNavigationState extends State<MainNavigation> {
     return Scaffold(
       body: _screen[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: [ BottomNavigationBarItem(
-          icon: _currentIndex == 0 ? 
-          const Icon(Icons.home) :
-          const Icon(Icons.home_outlined),
-          label: ""
-        ),
-         BottomNavigationBarItem(
-          icon: _currentIndex == 1 ? 
-          const Icon(Icons.search) :
-          const Icon(Icons.search_outlined),
-          label: ""
-        ),
-         BottomNavigationBarItem(
-          icon: _currentIndex == 2 ? 
-          const Icon(Icons.mail) :
-          const Icon(Icons.mail_outlined),
-          label: ""
-
-        ),
-         BottomNavigationBarItem(
-          icon: _currentIndex == 3 ? 
-          const Icon(Icons.person) :
-          const Icon(Icons.person_outline),
-          label: "",
-        ),
+        items: [
+          BottomNavigationBarItem(
+            icon: _currentIndex == 0
+                ? const Icon(Icons.home)
+                : const Icon(Icons.home_outlined),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 1
+                ? const Icon(Icons.search)
+                : const Icon(Icons.search_outlined),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 2
+                ? const Icon(Icons.mail)
+                : const Icon(Icons.mail_outlined),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 3
+                ? const Icon(Icons.person)
+                : const Icon(Icons.person_outline),
+            label: "",
+          ),
         ],
         currentIndex: _currentIndex,
-        onTap: (index){
+        onTap: (index) {
           setState(() {
             _currentIndex = index;
           });
